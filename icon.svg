@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="200mm"
+   height="200.00002mm"
+   viewBox="0 0 200 200.00002"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Warstwa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-5.0000001,-44.178954)">
+    <circle
+       style="fill:#2f2f37;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.365001;paint-order:stroke fill markers"
+       id="path1"
+       cx="105"
+       cy="144.17896"
+       r="100" />
+    <path
+       id="rect1"
+       style="fill:#7f403b;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.365001;paint-order:stroke fill markers"
+       d="M 65.000114,53.14458 29.64465,88.500045 65.000114,123.85551 100.35506,88.500041 Z m 79.999766,-10e-7 -35.35546,35.355465 35.35546,35.355466 35.35547,-35.355465 z m -40.00014,40.000142 -35.354945,35.355469 35.354945,35.35546 35.35547,-35.35546 z m -39.999624,40.000149 -35.355464,35.35546 35.355463,35.35495 35.355465,-35.35495 z m 79.999774,0 -35.35547,35.35546 35.35547,35.35495 35.35546,-35.35495 z m -40.00015,40.00014 -35.354945,35.35495 35.354945,35.35546 35.35547,-35.35546 z" />
+    <rect
+       style="fill:#bd9766;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:stroke fill markers"
+       id="rect2"
+       width="50"
+       height="50"
+       x="80"
+       y="142.59456" />
+  </g>
+</svg>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sortowanie</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      min-width: 300px;
+      background-color: #2F2F37;
+      color: #EAE3D1;
+    }
+    .tab-item {
+      display: flex;
+      align-items: center;
+      margin: 5px 0;
+    }
+    .btn, .pin-btn {
+      margin-left: auto;
+      padding: 3px 8px;
+      background: #BD9766;
+      color: #EAE3D1;
+      border: none;
+      cursor: pointer;
+    }
+    #sortButtons {
+      margin-top: 10px;
+    }
+  .tab-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-grow: 1;
+  }
+  
+  .favicon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+</style>
+
+  </style>
+</head>
+<body>
+  <div id="tabsList"></div>
+  <div id="sortButtons">
+    <button id="sortAZ" class="btn">Sortuj A-Z (tylko nieprzypięte)</button>
+  </div>
+
+  <script src="js/popup.js"></script>
+</body>
+</html>

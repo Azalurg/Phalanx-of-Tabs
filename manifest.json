@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "PHALANX of TABS",
+  "version": "1.0",
+  "description": "Pin important tabs, sort the rest, and keep your browsing tidy.",
+  "icons": {
+    "128": "icon128.png",
+    "512": "icon512.png"
+  },
+
+  "permissions": [
+    "tabs",
+    "favicon"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon128.png"
+  },
+  "background": {
+    "service_worker": "js/background.js"
+  }
+}
