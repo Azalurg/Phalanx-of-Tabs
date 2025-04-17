@@ -1,59 +1,76 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Sortowanie</title>
   <meta charset="UTF-8">
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 10px;
-      min-width: 300px;
+      padding: 1rem;
+      min-width: 20rem;
       background-color: #2F2F37;
       color: #EAE3D1;
     }
+
     .tab-item {
       display: flex;
       align-items: center;
-      margin: 5px 0;
+      margin: 0.5rem 0;
     }
-    .btn, .pin-btn {
+
+    .btn,
+    .pin-btn {
       margin-left: auto;
-      padding: 3px 8px;
+      padding: 0.25rem 0.5rem;
       background: #BD9766;
       color: #EAE3D1;
       border: none;
       cursor: pointer;
     }
+
     #sortButtons {
-      margin-top: 10px;
+      margin-top: 1rem;
     }
-  .tab-content {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-grow: 1;
-  }
-  
-  .favicon {
-    width: 16px;
-    height: 16px;
-  }
-  
-  .title {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-</style>
+
+    .tab-content {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-grow: 1;
+    }
+
+    .favicon {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  </style>
 
   </style>
 </head>
+
 <body>
   <div id="tabsList"></div>
   <div id="sortButtons">
     <button id="sortAZ" class="btn">Sortuj A-Z (tylko nieprzypięte)</button>
   </div>
+  <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+    <input type="checkbox" id="topSortSwitch">
+    <span>Top sort tabs</span>
+  </label>
+  <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+    <input type="checkbox" id="oneSortSwitch">
+    <span>One sort tabs</span>
+  </label>
+
 
   <script src="js/popup.js"></script>
 </body>
+
 </html>

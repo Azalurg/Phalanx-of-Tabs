@@ -8,10 +8,10 @@
     "512": "icon512.png"
   },
 
-  "permissions": [
-    "tabs",
-    "favicon"
-  ],
+ "permissions": [
+  "tabs",
+  "storage"
+],
   "action": {
     "default_popup": "popup.html",
     "default_icon": "icon128.png"

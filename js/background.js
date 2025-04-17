@@ -15,18 +15,25 @@ async function moveTabWithRetry(tabId, index, retries = 5) {
 
 // Obsługa aktywacji karty
 chrome.tabs.onActivated.addListener(async (activeInfo) => {
-  const tab = await chrome.tabs.get(activeInfo.tabId);
-  
-  if (!tab.pinned) {
+  // Sprawdź ustawienie w storage
+  chrome.storage.sync.get(['topSortSwitch', 'oneSortSwitch'], async (result) => {
+    if (!result.topSortSwitch && !result.oneSortSwitch) return; // Jeśli wyłączone, nie rób nic
+
+    const tab = await chrome.tabs.get(activeInfo.tabId);
+
+    if (tab.pinned) return;  // Jeśli karta jest przypięta, nie rób nic
+
     const allTabs = await chrome.tabs.query({ currentWindow: true });
     const pinnedCount = allTabs.filter(t => t.pinned).length;
-    const targetIndex = pinnedCount;
+    let targetIndex = tab.index; // Domyślnie na końcu listy
+
+    if (result.topSortSwitch) targetIndex = pinnedCount;
+    if (result.oneSortSwitch) targetIndex = Math.max(pinnedCount, targetIndex - 1);
 
     if (tab.index !== targetIndex) {
-      // Użyj funkcji z ponawianiem prób
       await moveTabWithRetry(tab.id, targetIndex);
     }
-  }
+  });
 });
 
 // Reszta kodu pozostaje bez zmian
