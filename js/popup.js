@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  const tabsList = document.getElementById('tabsList');
+
 
   // Załaduj listę kart
   chrome.tabs.query({ currentWindow: true }, tabs => {
@@ -33,35 +33,64 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function renderTabs(tabs) {
-  tabsList.innerHTML = '';
-  tabs.forEach(tab => {
-    const div = document.createElement('div');
-    div.className = 'tab-item';
+  const titleLength = 100;
+  const tabsListContent = document.getElementById('tabsList');
+  const pinnedTabsListContent = document.getElementById('pinnedTabsList');
+
+  pinnedTabs = tabs.filter(t => t.pinned);
+  notPinnedTabs = tabs.filter(t => !t.pinned);
+
+  tabsListContent.innerHTML = '';
+  pinnedTabsListContent.innerHTML = '';
+
+  pinnedTabs.forEach(tab => {
+    const li = document.createElement('li');
+    li.className = 'tab-item pinned';
 
     // Skróć tytuł do 30 znaków
-    const shortTitle = tab.title?.length > 30
-      ? tab.title.substring(0, 30) + '...'
+    const shortTitle = tab.title?.length > titleLength
+      ? tab.title.substring(0, titleLength) + '...'
       : tab.title;
 
-    div.innerHTML = `
-        <div class="tab-content">
-          <img class="favicon" src="${tab.favIconUrl}">
-          <span class="title">${tab.pinned ? '📌 ' : ''}${shortTitle}</span>
-        </div>
-        <button class="pin-btn" data-tab-id="${tab.id}">
-          ${tab.pinned ? 'Odepnij' : 'Przypnij'}
-        </button>
+      li.innerHTML = `
+          <button class="pin-btn-selector unpin-btn" data-tab-id="${tab.id}">
+            <img class="favicon" src="${tab.favIconUrl}">
+            <span class="title">${shortTitle}</span>
+          </button>
       `;
 
-    tabsList.appendChild(div);
+    pinnedTabsListContent.appendChild(li);
   });
 
+  notPinnedTabs.forEach(tab => {
+    const li = document.createElement('li');
+    li.className = 'tab-item';
+
+    // Skróć tytuł do 30 znaków
+    const shortTitle = tab.title?.length > titleLength
+      ? tab.title.substring(0, titleLength) + '...'
+      : tab.title;
+
+    li.innerHTML = `
+      <button class="pin-btn-selector pin-btn" data-tab-id="${tab.id}">
+        <img class="favicon" src="${tab.favIconUrl}">
+        <span class="title">${shortTitle}</span>
+      </button>
+      `;
+
+    tabsListContent.appendChild(li);
+  }
+  );
+
   // Obsługa przycisków "Przypnij/Odepnij"
-  document.querySelectorAll('.pin-btn').forEach(btn => {
+  document.querySelectorAll('.pin-btn-selector').forEach(btn => {
     btn.addEventListener('click', () => {
       const tabId = parseInt(btn.dataset.tabId);
       chrome.tabs.get(tabId, tab => {
         chrome.tabs.update(tabId, { pinned: !tab.pinned });
+        chrome.tabs.query({ currentWindow: true }, tabs => {
+          renderTabs(tabs);
+        });
       });
     });
   });

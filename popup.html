@@ -4,71 +4,33 @@
 <head>
   <title>Sortowanie</title>
   <meta charset="UTF-8">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 1rem;
-      min-width: 20rem;
-      background-color: #2F2F37;
-      color: #EAE3D1;
-    }
-
-    .tab-item {
-      display: flex;
-      align-items: center;
-      margin: 0.5rem 0;
-    }
-
-    .btn,
-    .pin-btn {
-      margin-left: auto;
-      padding: 0.25rem 0.5rem;
-      background: #BD9766;
-      color: #EAE3D1;
-      border: none;
-      cursor: pointer;
-    }
-
-    #sortButtons {
-      margin-top: 1rem;
-    }
-
-    .tab-content {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-grow: 1;
-    }
-
-    .favicon {
-      width: 1rem;
-      height: 1rem;
-    }
-
-    .title {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-  </style>
-
+  <link rel="stylesheet" href="style.css">
   </style>
 </head>
 
 <body>
-  <div id="tabsList"></div>
-  <div id="sortButtons">
-    <button id="sortAZ" class="btn">Sortuj A-Z (tylko nieprzypięte)</button>
-  </div>
-  <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-    <input type="checkbox" id="topSortSwitch">
-    <span>Top sort tabs</span>
-  </label>
-  <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-    <input type="checkbox" id="oneSortSwitch">
-    <span>One sort tabs</span>
-  </label>
+  <h2>Phalanx of Tabs</h2>
+  <ul id="options">
+    <li>
+      <input type="checkbox" id="topSortSwitch" name="topSortSwitch">
+      <label for="topSortSwitch">Top sort tabs</label>
+    </li>
+    <li>
+      <input type="checkbox" id="oneSortSwitch" name="oneSortSwitch">
+      <label for="oneSortSwitch">One sort tabs</label>
+    </li>
+  </ul>
+  <ul id="pinnedTabsList" class="list">
 
+  </ul>
+
+  <ul id="tabsList" class="list">
+
+  </ul>
+
+  <div id="sortButtons">
+    <button id="sortAZ" class="sort-btn">Sortuj A-Z (tylko nieprzypięte)</button>
+  </div>
 
   <script src="js/popup.js"></script>
 </body>
